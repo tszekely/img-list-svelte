@@ -1,8 +1,11 @@
 <script lang="ts">
   import BlockList from './BlockList.svelte';
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlPageSize = parseInt(urlParams.get("pageSize") || '');
+
   let page: number = 1;
-  let pageSize = 100;
+  let pageSize = isNaN(urlPageSize) ? 10 : urlPageSize;
 
   function onPrevPage() {
     page -= 1;
@@ -15,11 +18,11 @@
 
 <main>
   <header>
-    <h1>Images</h1>
+    <h1>Blocks</h1>
 
-    <label>
+    <label class="items">
+      <span>Items: </span>
       <input type=number bind:value={pageSize}>
-      Animate
     </label>
   </header>
 
@@ -52,6 +55,7 @@
   }
 
   header, footer {
+    position: relative;
     margin: 0;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.15);
@@ -76,5 +80,24 @@
 
   button:hover, button:active {
     background: #ddd;
+  }
+
+  .items {
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .items input {
+    width: 50px;
+    margin: 0 0 0 0.5rem;
+    padding: 0.5rem 0.75rem;
+    line-height: 1;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    outline: none;
   }
 </style>
