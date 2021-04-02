@@ -1,7 +1,8 @@
 <script lang="ts">
-  import ImageList from './ImageList.svelte';
+  import BlockList from './BlockList.svelte';
 
   let page: number = 1;
+  let pageSize = 100;
 
   function onPrevPage() {
     page -= 1;
@@ -13,17 +14,22 @@
 </script>
 
 <main>
-  <h1>Images</h1>
+  <header>
+    <h1>Images</h1>
 
-  <ImageList page={page} />
+    <label>
+      <input type=number bind:value={pageSize}>
+      Animate
+    </label>
+  </header>
+
+  <BlockList {page} {pageSize} />
 
   <footer>
     <div class="paging">
-      <!--{#if page > 1}-->
         <button on:click={onPrevPage} disabled={page < 2}>
           Prev
         </button>
-      <!--{/if}-->
 
       <button class="page-current">
         Page {page}
@@ -45,7 +51,7 @@
     text-align: center;
   }
 
-  h1, footer {
+  header, footer {
     margin: 0;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.15);

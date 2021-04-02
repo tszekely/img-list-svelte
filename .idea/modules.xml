@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../block-list-forgojs/.idea/block-list-forgojs.iml" filepath="$PROJECT_DIR$/../block-list-forgojs/.idea/block-list-forgojs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../block-list-preact-ts/.idea/block-list-preact-ts.iml" filepath="$PROJECT_DIR$/../block-list-preact-ts/.idea/block-list-preact-ts.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/img-list-svelte.iml" filepath="$PROJECT_DIR$/.idea/img-list-svelte.iml" />
     </modules>
   </component>
